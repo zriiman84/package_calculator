@@ -13,17 +13,17 @@ Radicación
 ## Instalación
 **Windows**
 ```
-> pip install package_calculator_zriiman84
+> pip install package-calculator-zriiman84
 ```
 
 **MacOs**
 ```
-> pip3 install package_calculator_zriiman84
+> pip3 install package-calculator-zriiman84
 ```
 
 ## Uso
 ```
-from package_calculator_zriiman84 import Calculadora
+from package_calculator import Calculadora
 
 > print('Sumar (6,3): ', Calculadora.sumar(6,3)) 
 > print('Restar (6,3): ', Calculadora.restar(6,3))
