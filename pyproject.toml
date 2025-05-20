@@ -1,18 +1,20 @@
 [build-system]
-requires = ["setuptools>=77.0.3, "wheel"]
+requires = ["setuptools>=77.0.3", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "package_calculator_zriiman84"
 version = "0.0.1"
 description = "Un paquete que contiene una clase Calculadora para operaciones matemáticas básicas, con pyproject.toml"
-authors = [{ name = "Cristofer Vargas", email = "crisric84@gmail.com }]
+authors = [
+  { name="Cristofer Vargas", email="crisric84@gmail.com" },
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
 classifiers = [
     "Programming Language :: Python :: 3",
-    "Operating System :: OS Independent",
+    "Operating System :: OS Independent"
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
