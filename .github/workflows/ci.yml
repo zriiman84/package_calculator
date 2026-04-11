@@ -1,0 +1,45 @@
+# Nombre del workflow — aparece en la pestaña Actions de GitHub
+name: CI Pipeline
+
+# ── TRIGGERS: cuándo se ejecuta este workflow ──────────────────
+on:
+  push:
+    branches:
+      - main          # se activa en cada push a la rama main
+  pull_request:
+    branches:
+      - main          # también en PRs hacia main
+
+# ── JOBS: los trabajos a ejecutar ─────────────────────────────
+jobs:
+
+  build:                         # nombre del job
+    name: Ejecutar Pruebas
+    runs-on: ubuntu-latest      # runner: Ubuntu más reciente
+
+    # ── STEPS: pasos secuenciales del job ───────────────────────
+    steps:
+
+      # PASO 1: Descargar el código del repositorio
+      - name: 📥 Checkout del código
+        uses: actions/checkout@v4
+
+      # PASO 2: Mostrar información del entorno
+      - name: 🖥 Mostrar información del runner
+        run: |
+          echo "Sistema operativo: $(uname -a)"
+          echo "Directorio actual: $(pwd)"
+          echo "Archivos en el repo:"
+          ls -la
+
+      # PASO 3: Dar permisos de ejecución al script
+      - name: 🔐 Dar permisos al script
+        run: chmod +x test.sh
+
+      # PASO 4: Ejecutar el script de pruebas
+      - name: 🧪 Ejecutar pruebas
+        run: bash test.sh
+
+      # PASO 5: Mensaje de éxito
+      - name: ✅ Pipeline completado
+        run: echo "🎉 CI Pipeline ejecutado exitosamente"
