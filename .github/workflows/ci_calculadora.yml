@@ -1,0 +1,47 @@
+name: CI Calculadora Python
+
+# ── TRIGGERS: Se activa al hacer push o PR a la rama main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# ── JOBS: los trabajos a ejecutar ─────────────────────────────
+jobs:
+  test_job:
+    name: Pruebas Unitarias de Calculadora
+    runs-on: ubuntu-latest  # El runner oficial de GitHub
+    # Agregamos la variable de entorno global para este JOB
+    env: 
+      APP_ENV: testing
+
+    # ── STEPS: pasos secuenciales del job ───────────────────────
+    steps:
+      # PASO 1: Descargar el código del repositorio
+      - name: 📥 Checkout del código
+        uses: actions/checkout@v4
+
+      # PASO 2: Mostrar información del entorno
+      - name: 🖥 Mostrar información del runner
+        run: |
+          echo "Sistema operativo: $(uname -a)"
+          echo "Directorio actual: $(pwd)"
+          echo "Archivos en el repo:"
+          ls -la
+
+      # PASO 3: Configurar el entorno de Python
+      # Aquí instalamos el lenguaje específicamente
+      - name: 🐍 Configurar Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      # PASO 4: Ejecutar las pruebas unitarias
+      # Invocamos directamente al archivo de pruebas que creamos
+      - name: 🧪 Ejecutar TestCalculadora.py
+        run: python TestCalculadora.py
+
+      # PASO 5: Mensaje de cierre
+      - name: ✅ Pipeline Exitoso
+        run: echo "🎉 Todas las operaciones de la calculadora fueron validadas correctamente."
