@@ -1,4 +1,4 @@
-![CI Pipeline](https://github.com/zriiman84/package_calculator/actions/workflows/ci.yml/badge.svg)
+<!-- ![CI Pipeline](https://github.com/zriiman84/package_calculator/actions/workflows/ci.yml/badge.svg) -->
 ![CI Calculadora Python](https://github.com/zriiman84/package_calculator/actions/workflows/ci_calculadora.yml/badge.svg)
 
 # package_calculator
